@@ -243,10 +243,6 @@ if (mount) {
   });
   mount.addEventListener('pointerup', () => { dragging = false; });
   mount.addEventListener('pointercancel', () => { dragging = false; });
-  mount.addEventListener('wheel', event => {
-    event.preventDefault();
-    targetZoom = THREE.MathUtils.clamp(targetZoom + event.deltaY * .006, 4.4, 10);
-  }, { passive: false });
   mount.addEventListener('keydown', event => {
     if (!product) return;
     if (event.key === 'ArrowLeft') product.rotation.y -= .12;
