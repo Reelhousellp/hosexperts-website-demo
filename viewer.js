@@ -148,6 +148,27 @@ if (mount) {
     explore.href = data.href;
     explore.innerHTML = `${data.link} <span>↗</span>`;
     mount.setAttribute('aria-label', `Interactive 3D illustration of ${data.family.toLowerCase()}. Drag or use arrow keys to rotate, plus and minus to zoom.`);
+    const specTitle = document.getElementById('specTitle');
+    const specIntro = document.getElementById('specIntro');
+    const specBody = document.getElementById('specBody');
+    const specPdf = document.getElementById('specPdf');
+    const specNote = document.getElementById('specNote');
+    const specStatus = document.getElementById('specStatus');
+    if (next === 'hose') {
+      specTitle.textContent = 'SAE 100 R3 · selected sizes';
+      specIntro.textContent = 'Values transcribed from a HoseXperts product sheet. The 3D hose above is illustrative and does not depict this exact model.';
+      specBody.innerHTML = '<tr><td>≈¼ / 6.40</td><td>87 / 1,250</td><td>348 / 5,046</td><td>76</td><td>−40 to +100</td></tr><tr><td>≈⅜ / 9.50</td><td>78 / 1,131</td><td>312 / 4,524</td><td>101</td><td>−40 to +100</td></tr><tr><td>≈½ / 12.70</td><td>70 / 1,015</td><td>280 / 4,060</td><td>127</td><td>−40 to +100</td></tr><tr><td>≈¾ / 19.10</td><td>52 / 754</td><td>208 / 3,016</td><td>152</td><td>−40 to +100</td></tr>';
+      specPdf.hidden = false;
+      specNote.textContent = '*The source sheet labels this “Bending Radius.” Inch sizes are approximate conversions from the listed millimetres. Confirm the current specification with HoseXperts before ordering.';
+      specStatus.textContent = 'SOURCE: HOSEXPERTS SAE 100 R3 PRODUCT SHEET';
+    } else {
+      specTitle.textContent = next === 'assembly' ? 'Assembly specifications' : 'Coupling specifications';
+      specIntro.textContent = 'This table is ready for client-approved technical data. No operating values have been supplied for this illustrated family.';
+      specBody.innerHTML = '<tr class="pending"><td>Pending product selection</td><td>Awaiting data sheet</td><td>Awaiting data sheet</td><td>Awaiting data sheet</td><td>Awaiting data sheet</td></tr>';
+      specPdf.hidden = true;
+      specNote.textContent = 'The live website should link each exact part number to its verified product sheet and relevant certificates.';
+      specStatus.textContent = 'TECHNICAL DATA PENDING CLIENT APPROVAL';
+    }
     explodeButton.hidden = next !== 'assembly';
     explodeButton.setAttribute('aria-pressed', 'false');
     document.querySelectorAll('[data-model]').forEach(button => {
@@ -189,16 +210,16 @@ if (mount) {
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.9;
+    renderer.toneMappingExposure = 1.2;
     mount.appendChild(renderer.domElement);
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(37, 1, .1, 100);
-    scene.add(new THREE.AmbientLight(0xffffff, 2.3));
-    const key = new THREE.DirectionalLight(0xffffff, 4.5);
+    scene.add(new THREE.AmbientLight(0xffffff, 1.4));
+    const key = new THREE.DirectionalLight(0xffffff, 3);
     key.position.set(-3, 6, 5); scene.add(key);
-    const rim = new THREE.DirectionalLight(0xe9b68e, 3.8);
+    const rim = new THREE.DirectionalLight(0xe9b68e, 2.5);
     rim.position.set(3, 2, -4); scene.add(rim);
-    const fill = new THREE.DirectionalLight(0x9dbeb0, 2.4);
+    const fill = new THREE.DirectionalLight(0x9dbeb0, 1.2);
     fill.position.set(1, -2, 4); scene.add(fill);
     setMode('hose');
     resize();

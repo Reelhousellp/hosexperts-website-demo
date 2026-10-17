@@ -9,6 +9,7 @@ A responsive pitch demo for [HoseXperts](https://www.hosexperts.com/), built wit
 - Interactive 3D product lab with illustrative hose, assembly and coupling forms. Users can drag, rotate, zoom, switch families and separate assembly ends. The models are conceptual and are not technical replicas.
 - Three.js 0.180.0 is included locally in the project root under its MIT license, so the viewer does not depend on a CDN.
 - Mobile navigation, reduced-motion support, semantic controls and keyboard-friendly dialogs.
+- A verified technical preview for SAE 100 R3 includes selected size rows transcribed from the [HoseXperts product sheet](https://www.hosexperts.com/images/products/150980138020171104.pdf). Inch values are approximate conversions; the source labels bend radius without explicitly saying minimum. Other family rows and PDF slots are marked pending.
 - All product names and company facts used in the concept come from the current HoseXperts site. Product compatibility, specifications, certifications, stock and commercial claims require client verification.
 
 ## Running locally
