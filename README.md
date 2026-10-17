@@ -6,6 +6,8 @@ A responsive pitch demo for [HoseXperts](https://www.hosexperts.com/), built wit
 
 - Art-directed landing page with custom industrial imagery, scroll reveals and selectable solution-family storytelling.
 - Product explorer with category chips, name search, detail dialogs, shortlist and a requirement form that prepares an email draft.
+- Interactive 3D product lab with illustrative hose, assembly and coupling forms. Users can drag, rotate, zoom, switch families and separate assembly ends. The models are conceptual and are not technical replicas.
+- Three.js 0.180.0 is included locally in the project root under its MIT license, so the viewer does not depend on a CDN.
 - Mobile navigation, reduced-motion support, semantic controls and keyboard-friendly dialogs.
 - All product names and company facts used in the concept come from the current HoseXperts site. Product compatibility, specifications, certifications, stock and commercial claims require client verification.
 
